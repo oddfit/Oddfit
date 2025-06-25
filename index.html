@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <title>OddFit — Rewriting the Size Guide</title>
   <meta name="description" content="OddFit is here to rewrite the size guide. Designed for real fits, not standard charts. Launching soon!" />
   <meta name="keywords" content="OddFit, fashion, women's clothing, unique sizes, S+, M+, L+, XL+, comfort wear, peplum tops, fitwear" />
   <meta name="author" content="OddFit Team" />
-
-  <!-- Open Graph -->
   <meta property="og:title" content="OddFit — Rewriting the Size Guide" />
   <meta property="og:description" content="OddFit is redefining fashion fit. Launching soon!" />
   <meta property="og:image" content="https://oddfit.in/og-image.jpg" />
   <meta property="og:url" content="https://oddfit.in" />
   <meta property="og:type" content="website" />
 
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <!-- Stylish Heading Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
 
   <style>
     * {
@@ -29,7 +28,7 @@
       height: 100%;
       width: 100%;
       font-family: 'Segoe UI', sans-serif;
-      color: #4b004d; /* Changed for visibility */
+      color: #4b004d;
       text-align: center;
       display: flex;
       align-items: center;
@@ -53,6 +52,14 @@
     img {
       max-width: 100%;
       height: auto;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)); /* Logo shadow */
+    }
+
+    .tagline {
+      font-size: 1em;
+      margin-bottom: 20px;
+      color: #4b004d;
     }
 
     .clock {
@@ -62,6 +69,7 @@
       margin: 0 auto 20px auto;
       border: 4px solid #C04E4E;
       border-radius: 50%;
+      box-shadow: 0 0 8px #c04e4e50; /* Clock glow */
     }
 
     .clock::before,
@@ -97,6 +105,7 @@
     }
 
     h1 {
+      font-family: 'Playfair Display', serif;
       font-size: 2em;
       margin-bottom: 10px;
       color: #4b004d;
@@ -105,6 +114,22 @@
     p {
       font-size: 1.2em;
       color: #4b004d;
+    }
+
+    .notify-btn {
+      margin-top: 20px;
+      background-color: #C04E4E;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1em;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .notify-btn:hover {
+      background-color: #a73d3d;
     }
 
     @media (max-width: 600px) {
@@ -121,9 +146,11 @@
 <body>
   <div class="container">
     <img src="logo.png" alt="OddFit Logo" />
+    <div class="tagline">Rewriting the size guide</div>
     <div class="clock"></div>
     <h1>is coming soon</h1>
     <p>We’re working on something exciting. Stay tuned!</p>
+    <button class="notify-btn">Notify Me</button>
   </div>
 </body>
 </html>
