@@ -26,15 +26,14 @@
   <meta name="twitter:description" content="OddFit is redefining how clothing fits. Designed for real people, not generic sizes." />
   <meta name="twitter:image" content="https://oddfit.in/og-image.jpg" />
 
-  <!-- Font for Headline -->
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
 
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body, html {
       height: 100%;
@@ -144,14 +143,59 @@
       background-color: #a73d3d;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.5em;
-      }
+    /* Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      align-items: center;
+      justify-content: center;
+    }
 
-      p {
-        font-size: 1em;
-      }
+    .popup-content {
+      background: #fff;
+      color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    .popup-content input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 1em;
+    }
+
+    .popup-content button {
+      padding: 8px 14px;
+      margin: 5px;
+      border: none;
+      background-color: #C04E4E;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .popup-content button:hover {
+      background-color: #a73d3d;
+    }
+
+    #statusMessage {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: green;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5em; }
+      p  { font-size: 1em; }
     }
   </style>
 </head>
@@ -161,7 +205,56 @@
     <div class="clock"></div>
     <h1>is coming soon</h1>
     <p>We’re working on something exciting. Stay tuned!</p>
-    <button class="notify-btn">Notify Me</button>
+    <button class="notify-btn" onclick="openPopup()">Notify Me</button>
   </div>
+
+  <!-- Popup -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h3>Get Notified</h3>
+      <input type="email" id="userEmail" placeholder="Enter your email" required />
+      <div>
+        <button onclick="sendEmail()">OK</button>
+        <button onclick="closePopup()">Cancel</button>
+      </div>
+      <p id="statusMessage"></p>
+    </div>
+  </div>
+
+  <script>
+    // Replace with your actual EmailJS values
+    emailjs.init("kIPvcE2mHyz7ueLFC");
+
+    function openPopup() {
+      document.getElementById("popup").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+      document.getElementById("statusMessage").textContent = "";
+    }
+
+    function sendEmail() {
+      const email = document.getElementById("userEmail").value;
+      const status = document.getElementById("statusMessage");
+
+      if (!email) {
+        status.textContent = "Please enter an email.";
+        return;
+      }
+
+      emailjs.send("service_oddfit", "template_notifyme", {
+        user_email: email
+      }).then(() => {
+        status.textContent = "We will contact you soon.";
+        document.querySelector(".notify-btn").disabled = true;
+        document.querySelector(".notify-btn").textContent = "Thank you!";
+        setTimeout(closePopup, 2000);
+      }, (error) => {
+        status.textContent = "Something went wrong. Try again.";
+        console.error(error);
+      });
+    }
+  </script>
 </body>
 </html>
