@@ -3,23 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Title and Description -->
   <title>OddFit — Rewriting the Size Guide</title>
   <meta name="description" content="OddFit is here to rewrite the size guide. Designed for real fits, not standard charts. Launching soon!" />
-
-  <!-- SEO: Keywords & Author -->
   <meta name="keywords" content="OddFit, fashion, women's clothing, unique sizes, S+, M+, L+, XL+, comfort wear, peplum tops, fitwear" />
   <meta name="author" content="OddFit Team" />
-
-  <!-- Open Graph for social previews -->
   <meta property="og:title" content="OddFit — Rewriting the Size Guide" />
   <meta property="og:description" content="OddFit is redefining fashion fit. Launching soon!" />
-  <meta property="og:image" content="https://oddfit.in/og-image.jpg" /> <!-- Replace with actual image -->
+  <meta property="og:image" content="https://oddfit.in/og-image.jpg" />
   <meta property="og:url" content="https://oddfit.in" />
   <meta property="og:type" content="website" />
-
-  <!-- Favicon (optional) -->
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
   <style>
@@ -60,6 +52,48 @@
       margin-bottom: 20px;
     }
 
+    .clock {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 20px auto;
+      border: 4px solid white;
+      border-radius: 50%;
+    }
+
+    .clock::before, .clock::after {
+      content: '';
+      position: absolute;
+      background-color: white;
+      top: 50%;
+      left: 50%;
+      transform-origin: bottom center;
+    }
+
+    .clock::before {
+      height: 20px;
+      width: 2px;
+      transform: rotate(0deg);
+      animation: rotateHour 60s linear infinite;
+    }
+
+    .clock::after {
+      height: 26px;
+      width: 2px;
+      transform: rotate(0deg);
+      animation: rotateMinute 10s linear infinite;
+    }
+
+    @keyframes rotateHour {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes rotateMinute {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
     h1 {
       font-size: 2em;
       margin-bottom: 10px;
@@ -78,57 +112,12 @@
         font-size: 1em;
       }
     }
-    .clock {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 20px auto;
-  border: 4px solid white;
-  border-radius: 50%;
-}
-
-.clock::before, .clock::after {
-  content: '';
-  position: absolute;
-  background-color: white;
-  top: 50%;
-  left: 50%;
-  transform-origin: bottom center;
-}
-
-.clock::before {
-  height: 20px;
-  width: 2px;
-  transform: rotate(0deg);
-  animation: rotateHour 60s linear infinite;
-}
-
-.clock::after {
-  height: 26px;
-  width: 2px;
-  transform: rotate(0deg);
-  animation: rotateMinute 10s linear infinite;
-}
-
-@keyframes rotateHour {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes rotateMinute {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
   </style>
 </head>
 <body>
   <div class="container">
     <img src="logo.png" alt="OddFit Logo" />
-    <div class="clock">
-      <img src="logo.png" alt="OddFit Logo" />
-<div class="clock"></div>
-<h1>is coming soon</h1>
-    </div>
+    <div class="clock"></div>
     <h1>is coming soon</h1>
     <p>We’re working on something exciting. Stay tuned!</p>
   </div>
